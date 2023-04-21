@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Product from './components/Product';
 import Account from './components/Account';
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
           <Route path="/product" element={<Product/>} />
           <Route path="/account" element={<Account/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

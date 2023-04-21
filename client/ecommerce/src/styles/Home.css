@@ -1,0 +1,26 @@
+.home{
+    width: 100%;
+    height: 90vh;
+}
+
+.each-slide{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+}
+.each-image {
+    height: auto;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+  }

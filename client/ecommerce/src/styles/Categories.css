@@ -1,0 +1,19 @@
+.categories{
+    margin-top: 15rem;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.describe {
+    text-decoration: none;
+}
+.describe div{
+    padding-top: 20px;
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+.describe div {
+   text-decoration: none;
+}

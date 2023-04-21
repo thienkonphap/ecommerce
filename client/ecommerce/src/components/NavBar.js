@@ -7,9 +7,9 @@ import '../styles/NavBar.css'
 function NavBar() {
   return (
     <AppBar position="static">
-      <Toolbar className='navBar'>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          My App
+      <Toolbar className='navBar' style = {{paddingRight: 30, paddingLeft: 30}}>
+        <Typography variant="h6" style={{ flexGrow: 1}} to="/">
+          SidewalkSwagger
         </Typography>
         <Button color="inherit" component={Link} to="/">
           Home
