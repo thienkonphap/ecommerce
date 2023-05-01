@@ -1,8 +1,11 @@
 import React from 'react'
-
+import LoginPage from './Login'
+import CreateAccountPage from '../components/NewAccount'
 function Account() {
   return (
-    <div><h1>printsomehting</h1></div>
+    <div className='loginPage'>
+     <LoginPage/>
+    </div>
   )
 }
 

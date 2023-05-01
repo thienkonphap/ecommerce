@@ -8,9 +8,9 @@ function NavBar() {
   return (
     <AppBar position="static">
       <Toolbar className='navBar' style = {{paddingRight: 30, paddingLeft: 30}}>
-        <Typography variant="h6" style={{ flexGrow: 1}} to="/">
-          SidewalkSwagger
-        </Typography>
+          <Typography variant="h6" style={{ flexGrow: 1}} href="/">
+            SidewalkSwagger
+          </Typography>
         <Button color="inherit" component={Link} to="/">
           Home
         </Button>

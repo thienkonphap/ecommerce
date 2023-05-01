@@ -5,10 +5,11 @@ import Fade from "@mui/material/Fade";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/ProductsItem.css'
 
 
-function ProducstItem({ image, name, price, imageHover }) {
+function ProducstItem({id, image, name, price, imageHover }) {
 
     const [imageSrc, setImageSrc] = useState(image);
 
@@ -21,7 +22,7 @@ function ProducstItem({ image, name, price, imageHover }) {
                 <Card style={{ width: '300px' }} onMouseOver={handleMouseEnterImage} onMouseOut={handleMouseLeaveImage}>
                     <CardMedia component="img" image={imageSrc} alt={name} />
                     <CardContent>
-                        <Typography variant="h5" component="h2">
+                        <Typography className='productName' variant="h5" component="h2" component={Link} to={'/product/' + id} style={{textDecoration: 'none', textTransform:'none', color: 'black'}}>
                             {name}
                         </Typography>
                         <Typography variant="h6" color="textSecondary">

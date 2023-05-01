@@ -51,3 +51,28 @@
 
 ![atl text](images/Screenshot%202023-04-19%20at%2021.36.38.png)
 ![atl text](images/Screenshot%202023-04-21%20at%2023.30.11.png)
+
+
+### let make a page for detail of product, i want to create a rout product/productID  where productID is id of the product
+
+![atl text](images/Screenshot%202023-04-23%20at%2018.19.15.png)
+![atl text](images/Screenshot%202023-04-23%20at%2018.19.38.png)
+
+### giving variable product, the variable is a json object, with key "images" with value is the list of imageURL, change the code display all the images on the left side
+
+![atl text](images/Screenshot%202023-04-23%20at%2019.31.45.png)
+
+### Can you add  'add to cart' button , on the right side of the page
+
+![atl text](images/Screenshot%202023-04-29%20at%2014.23.06.png)
+
+
+### Can you generate a login page, using Material UI?
+
+![atl text](images/Screenshot%202023-05-01%20at%2011.52.45.png)
+![atl text](images/Screenshot%202023-05-01%20at%2011.53.30.png)
+
+### I want to generate a page "Create new account"
+
+![atl text](images/Screenshot%202023-05-01%20at%2011.54.22.png)
+![atl text](images/Screenshot%202023-05-01%20at%2011.54.49.png)

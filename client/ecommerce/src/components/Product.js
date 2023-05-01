@@ -57,7 +57,7 @@ const products = [
   {
     id: 6,
     name: 'Product 6',
-    image: 'https://tummachines.com/wp-content/uploads/2022/12/PARACHUTE-PANT-BLACK-1-1.jpg',
+    image: 'https://tummachines.com/wp-content/uploads/2022/12/PARACHUTE-PANT-BLACK-1-1.jpgGi',
     price: '$59.99',
     imageHover: 'https://tummachines.com/wp-content/uploads/2022/12/VICTORIA-JACKET-BLACK-4.jpg'
   },
@@ -102,6 +102,7 @@ function Product() {
       <Grid container spacing={2} justify="center" alignItems="center" style={{margin: "0 auto", maxWidth: "960px", gap: 15}}>
         {products.map((product) => (
           <ProducstItem
+          id = {product.id}
           image={product.image}
           name={product.name}
           price={product.price}
