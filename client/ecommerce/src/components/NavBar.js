@@ -20,7 +20,7 @@ function NavBar() {
         <Button color="inherit" component={Link} to="/account">
           Account
         </Button>
-        <Button color="inherit" component={Link} to="/account">
+        <Button color="inherit" component={Link} to="/carts">
           <ShoppingCartIcon/>
         </Button>
       </Toolbar>
