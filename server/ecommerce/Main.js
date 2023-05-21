@@ -5,9 +5,17 @@ const productsapi = require('./products')
 const productapi = require('./product')
 const create_user_api = require('./create_user')
 const login_api = require('./login')
+const cors = require('cors');
+
 
 const app = express()
-const port = 3000
+const port = 4000
+
+app.use(cors({
+    credentials: true,
+    origin: true,
+    origin: 'http://localhost:3000'   // IP sur laquelle tourne votre client
+ }));
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
