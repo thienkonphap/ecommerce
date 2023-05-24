@@ -3,13 +3,14 @@ import { Grid, Card, CardMedia, CardContent, Typography } from '@material-ui/cor
 import { makeStyles } from '@material-ui/core/styles';
 import '../styles/Product.css'
 import ProducstItem from './ProductsItem';
-
+import { useEffect, useState } from 'react';
+import axios, * as others from 'axios';
 const products = [
   {
     id: 1,
     name: 'Product 1',
     image: 'https://tummachines.com/wp-content/uploads/2023/04/Ao-Den-1.jpg',
-    price: '$9.99', 
+    price: '$9.99',
     imageHover: 'https://tummachines.com/wp-content/uploads/2023/03/10.jpg'
   },
   {
@@ -92,21 +93,35 @@ const useStyles = makeStyles({
 });
 
 
+
 function Product() {
+  const [posts, setPosts] = useState([]);
+      
+      const getPosts = async () => {
+            axios.get('http://localhost:4000/products')
+                  .then((respone)=>{
+                        console.log(respone.data)
+                        setPosts(respone.data);
+                  })
+      };
+      useEffect(() => {
+            getPosts();
+      }, []);
   const classes = useStyles()
+  console.log()
   return (
     <div className='products'>
       <Typography variant="h4" align="center" gutterBottom>
         Our products
       </Typography>
-      <Grid container spacing={2} justify="center" alignItems="center" style={{margin: "0 auto", maxWidth: "960px", gap: 15}}>
-        {products.map((product) => (
+      <Grid container spacing={2} justify="center" alignItems="center" style={{ margin: "0 auto", maxWidth: "960px", gap: 15 }}>
+        {posts.map((product) => (
           <ProducstItem
-          id = {product.id}
-          image={product.image}
-          name={product.name}
-          price={product.price}
-          imageHover={product.imageHover}
+            id={product._id}
+            image={product.images[0]}
+            name={product.name}
+            price={product.price}
+            imageHover={product.images[1]}
 
           />
         ))}

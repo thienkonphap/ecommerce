@@ -9,10 +9,17 @@ const login_api = require('./login')
 const authMiddleware = require('./authMiddleware');
 const commentsApi = require('./add_comments');
 const salesApi = require('./salesApi');
+const cors = require('cors');
+
 
 const app = express()
+const port = 4000
 
-const port = 3000
+app.use(cors({
+    credentials: true,
+    origin: true,
+    origin: 'http://localhost:3000' // IP sur laquelle tourne votre client
+}));
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
