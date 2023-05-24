@@ -32,7 +32,7 @@ app.use(session({
 }));
 
 // Route to add a new comment
-app.post('/comments', commentsApi.addComment);
+app.post('/comments', authMiddleware.requireLogin,commentsApi.addComment);
 
 // API endpoint to retrieve all products
 app.get('/products', productsapi.getAllProducts);

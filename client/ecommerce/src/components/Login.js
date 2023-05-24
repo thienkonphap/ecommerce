@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, TextField, Button, Typography } from '@material-ui/core';
 import Link from '@mui/material/Link';
-
+import { useEffect, useState } from 'react';
+import axios, * as others from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,12 +33,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function signin(username, password) {
+  let payload = { email: username, password: password }
+  console.log(payload)
+  axios.post("http://localhost:4000/login",payload).then(res=>{
+    console.log(res.data)
+    localStorage.setItem("userid", res.data.userid)
+    //window.location.href = '/product'
+  }).catch(erro => alert("Email or Password incorrect"))
+}
 const LoginPage = () => {
   const classes = useStyles();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
+  const handleTextInputChange = event => {
+    setEmail(event.target.value);
+};
+const handleTextInputChange2 = event => {
+  setPassword(event.target.value);
+};
 
   return (
     <Container className={classes.container}>
-      <form className={classes.form} noValidate>
         <Typography variant="h5" component="h1">
           Login
         </Typography>
@@ -52,6 +69,8 @@ const LoginPage = () => {
           autoComplete="email"
           autoFocus
           className={classes.textField}
+          value= {email}
+          onChange= {handleTextInputChange}
         />
         <TextField
           variant="outlined"
@@ -63,22 +82,23 @@ const LoginPage = () => {
           type="password"
           id="password"
           autoComplete="current-password"
+          value= {password}
+          onChange= {handleTextInputChange2}
           className={classes.textField}
         />
         <div className='createNewAccount'>
         <a>No account ? </a> <Link href = '/createnew'> Create one</Link>
         </div>
         <Button
-          type="submit"
+          onClick={() => {console.log(email, password);signin(email, password)}}
+          type=""
           fullWidth
           variant="contained"
           color="primary"
-          className={classes.submitButton}
           style={{ backgroundColor: 'black', color: 'white' }}
         >
           Sign In
         </Button>
-      </form>
     </Container>
   );
 };

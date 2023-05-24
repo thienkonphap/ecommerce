@@ -18,19 +18,6 @@ function ProducstItem({id, image, name, price, imageHover }) {
     const handleMouseLeaveImage = () => setImageSrc(image)
     const queryParameters = new URLSearchParams(window.location.search)
     const type = queryParameters.get("id")
-    const [item, setItem] = useState([]);
-      
-      const getPosts = async () => {
-            axios.get('http://localhost:4000/products')
-                  .then((respone)=>{
-                        console.log(respone.data)
-                        setItem(respone.data);
-                  })
-                  console.log(type)
-      };
-      useEffect(() => {
-        getPosts();
-      }, []);
     return (
         <div className='productsItem'>
             <Grid key={name} item xs={12} sm={6} md={4} style={{ width: '100%' }}>

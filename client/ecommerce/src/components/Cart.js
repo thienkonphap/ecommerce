@@ -4,10 +4,70 @@ import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import "../styles/Cart.css"
+import axios, * as others from 'axios';
 
+
+// Cookies.set('session', String(localStorage.getItem("userid")), { expires: 7 }); // Expires in 7 days
+
+function buyItems(listProducts, userid) {
+    listProducts.map(product => {
+        // const session = Cookies.get('session');
+        const payload = {
+            product_id: product._id,
+            user_id: userid,
+            quantity: 1
+        }
+        const endpoint = 'http://localhost:4000/products';
+        const sessionData = {
+            token: userid,
+            userId: userid,
+        };
+
+        // Create the request headers
+        const headers = {
+            'Content-Type': 'application/json',
+            // Add your session data to the headers
+            'Authorization': `${sessionData.token}`,
+            'X-User-Id': sessionData.userId,
+        };
+
+        // Create the request body (if needed)
+        const requestBody = {
+            // Your request body data
+        };
+
+        // Send the API request
+        console.log(JSON.stringify(payload))
+        fetch(endpoint, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload),
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                console.log(data);
+            })
+            .catch(error => {
+                // Handle any errors
+                console.error(error);
+            });
+        /* const userId = userid
+         document.cookie = `userId=${userId}; path=/`; // Set the userId in the cookie
+         axios.post("http://localhost:4000/products", payload, {
+             headers: {
+                 'Authorization': `Bearer ${userid}`
+             }
+         }).then(res => {
+             console.log(res.data)
+         }) */
+    })
+
+}
 function Cart() {
     const { cartItems, removeFromCart } = useCartContext();
     var cpt = 0;
+    console.log(cartItems)
     const totolBill = () => {
         cartItems.map((item) => {
             cpt += parseFloat(item.price)
@@ -28,10 +88,10 @@ function Cart() {
                                 {item.name}
                             </Typography>
                             <Typography variant="body2" color="textSecondary">
-                                Size: {item.size}
+                                Size:
                             </Typography>
                             <Typography variant="h6">
-                                {item.price * item.quantity}
+                                S
                             </Typography>
                         </div>
                     </Grid>
@@ -62,7 +122,12 @@ function Cart() {
                 </Grid>
             </Grid>
 
-            <Button variant="contained" color="primary" style={{backgroundColor: 'black'}} className='checkOutBtn'>
+            <Button
+                onClick={() => buyItems(cartItems, String(localStorage.getItem("userid")))}
+                variant="contained"
+                color="primary"
+                style={{ backgroundColor: 'black' }}
+                className='checkOutBtn'>
                 Buy
             </Button>
         </div>

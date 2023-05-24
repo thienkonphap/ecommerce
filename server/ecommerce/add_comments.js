@@ -32,11 +32,14 @@ async function addComment(req, res) {
         let commentCount = 0;
 
         for (const comment of comments) {
-            const result_analysis = sentiment.analyze(comment.comments);
-            const score = result_analysis.score;
-            console.log(comment.comments, " ", score)
-            totalScore += score;
-            commentCount++;
+            if (!comment) {
+                const result_analysis = sentiment.analyze(comment.comments);
+                const score = result_analysis.score;
+                console.log(comment.comments, " ", score)
+                totalScore += score;
+                commentCount++;
+            }
+
         }
 
         const averageScore = totalScore / commentCount;
