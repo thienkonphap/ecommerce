@@ -39,7 +39,7 @@ function signin(username, password) {
   axios.post("http://localhost:4000/login",payload).then(res=>{
     console.log(res.data)
     localStorage.setItem("userid", res.data.userid)
-    //window.location.href = '/product'
+    window.location.href = '/product'
   }).catch(erro => alert("Email or Password incorrect"))
 }
 const LoginPage = () => {

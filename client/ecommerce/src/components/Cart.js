@@ -47,6 +47,8 @@ function buyItems(listProducts, userid) {
             .then(data => {
                 // Handle the response data
                 console.log(data);
+                alert("Your order has been saved")
+                window.location.href = '/product'
             })
             .catch(error => {
                 // Handle any errors

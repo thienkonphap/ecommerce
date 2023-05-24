@@ -131,6 +131,7 @@ function ProductDetailPage() {
             .then(response => response.json())
             .then(data => {
                 // Handle the response data
+                window.location.reload(false);
                 console.log(data);
             })
             .catch(error => {
