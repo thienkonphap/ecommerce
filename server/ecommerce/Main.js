@@ -1,16 +1,31 @@
 const express = require('express')
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb')
 const productsapi = require('./products')
 const productapi = require('./product')
 const create_user_api = require('./create_user')
 const login_api = require('./login')
+const authMiddleware = require('./authMiddleware');
+const commentsApi = require('./add_comments');
+const salesApi = require('./salesApi');
 
 const app = express()
+
 const port = 3000
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
+
+// Session configuration
+app.use(session({
+    secret: 'YourSecretKey',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Route to add a new comment
+app.post('/comments', commentsApi.addComment);
 
 // API endpoint to retrieve all products
 app.get('/products', productsapi.getAllProducts);
@@ -23,6 +38,9 @@ app.post('/newuser', create_user_api.createUser);
 
 // API endpoint to verify a user's login credentials
 app.post('/login', login_api.verifyLogin);
+
+// Route to buy a product
+app.post('/products', authMiddleware.requireLogin, salesApi.buyProduct);
 
 // Start the server
 app.listen(port, () => {

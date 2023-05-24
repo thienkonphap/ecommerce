@@ -32,7 +32,7 @@ async function getProductById(req, res) {
         // Retrieve user information for each comment
         const commentsWithUsers = await Promise.all(sales.map(async(sale) => {
             const user = await usersCollection.findOne({ _id: new ObjectId(sale.user_id) });
-            return { comment: sale.comments, username: user.username };
+            return { comment: sale.comments, username: user.username, avatar: user.avatar };
         }));
         // Add the comments to the product object
         product.comments = commentsWithUsers;

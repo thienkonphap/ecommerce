@@ -4,13 +4,13 @@ const { MongoClient } = require('mongodb')
 
 
 async function createUser(req, res) {
-    try {
-        // Connection URI to MongoDB Atlas cluster
-        const uri = 'mongodb+srv://ecommerce:ecommerce@cluster0.ujesu21.mongodb.net/?retryWrites=true&w=majority'
+    // Connection URI to MongoDB Atlas cluster
+    const uri = 'mongodb+srv://ecommerce:ecommerce@cluster0.ujesu21.mongodb.net/?retryWrites=true&w=majority'
 
-        // MongoClient instance to connect to MongoDB
-        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-            // Access the "users" collection in the "mydatabase" database
+    // MongoClient instance to connect to MongoDB
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    try {
+        // Access the "users" collection in the "mydatabase" database
         const db = client.db("ecommerce")
         const collection = db.collection("user")
             // Check if the user with the provided email already exists

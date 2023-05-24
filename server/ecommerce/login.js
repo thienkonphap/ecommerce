@@ -5,13 +5,13 @@ const { MongoClient } = require('mongodb')
 
 
 async function verifyLogin(req, res) {
-    try {
-        // Connection URI to MongoDB Atlas cluster
-        const uri = 'mongodb+srv://ecommerce:ecommerce@cluster0.ujesu21.mongodb.net/?retryWrites=true&w=majority'
+    // Connection URI to MongoDB Atlas cluster
+    const uri = 'mongodb+srv://ecommerce:ecommerce@cluster0.ujesu21.mongodb.net/?retryWrites=true&w=majority'
 
-        // MongoClient instance to connect to MongoDB
-        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-            // Access the "users" collection in the "mydatabase" database
+    // MongoClient instance to connect to MongoDB
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    try {
+        // Access the "users" collection in the "mydatabase" database
         const db = client.db("ecommerce")
         const collection = db.collection("user")
 
@@ -25,6 +25,9 @@ async function verifyLogin(req, res) {
         if (!user) {
             return res.status(401).json({ message: 'Invalid email or password' })
         }
+
+        // Store the user ID in the session
+        req.session.userId = user._id;
 
         // Return the ID of the authenticated user as a JSON response
         res.json(user._id)
