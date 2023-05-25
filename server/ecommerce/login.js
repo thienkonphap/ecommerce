@@ -28,9 +28,10 @@ async function verifyLogin(req, res) {
 
         // Store the user ID in the session
         req.session.userId = user._id;
+        
 
         // Return the ID of the authenticated user as a JSON response
-        res.json(user._id)
+        res.json({userid:user._id})
     } catch (e) {
         console.error(e)
     } finally {

@@ -40,7 +40,7 @@ function createUser(username, email, password) {
   console.log(payload)
   axios.post("http://localhost:4000/newuser",payload).then(res=>{
     console.log(res.data)
-    window.location.href = '/login'
+    window.location.href = '/account'
   }).catch(erro => alert("Something wrong, please try again"))
 }
 const CreateAccountPage = () => {

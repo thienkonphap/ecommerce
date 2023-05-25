@@ -76,3 +76,35 @@
 
 ![atl text](images/Screenshot%202023-05-01%20at%2011.54.22.png)
 ![atl text](images/Screenshot%202023-05-01%20at%2011.54.49.png)
+
+### i want to create a small comment section in ProductDetail page
+![atl text](images/Screenshot%202023-05-25%20at%2010.29.40.png)
+
+### can you create a component which is called CommentSection , the component with display the comment from an user
+
+![alt text](images/Screenshot%202023-05-25%20at%2010.30.37.png)
+
+### i want to display star rating base on point, basically we 5 stars will be display, and base on the point we have , the number of stars will be display in yellow
+![atl text](images/Screenshot%202023-05-25%20at%2010.31.25.png)
+
+### if the point is 4.5, i want to display 4 stars yellow and 1 half star
+
+![atl text](images/Screenshot%202023-05-25%20at%2010.33.24.png)
+
+### Moving on for add to cart function , how can i implement it? i want users add a product to cart and it will be displayed in cart
+
+![atl text](images/Screenshot%202023-05-25%20at%2010.34.14.png)
+![atl text](images/Screenshot%202023-05-25%20at%2010.34.43.png)
+
+### i want to change the display inside Cart component, i want it display picture of product on the left , and it's name, quantity and price on the right
+![atl text](images/Screenshot%202023-05-25%20at%2010.37.32.png)
+
+### can you add some styles to display image on the left , info on the right side?
+![atl text](images/Screenshot%202023-05-25%20at%2010.39.37.png)
+
+
+### how can i call API from reactjs
+![atl text](images/Screenshot%202023-05-25%20at%2010.41.06.png)
+
+### i want to call api with axios
+![atl text](images/Screenshot%202023-05-25%20at%2010.42.15.png)

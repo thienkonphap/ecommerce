@@ -18,7 +18,7 @@ const port = 4000
 app.use(cors({
     credentials: true,
     origin: true,
-    origin: 'http://localhost:3000' // IP sur laquelle tourne votre client
+    origin: 'http://localhost:3001' // IP sur laquelle tourne votre client
 }));
 
 // Middleware to parse JSON requests
